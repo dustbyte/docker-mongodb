@@ -1,6 +1,6 @@
 # docker-mongodb
 
-[![Build Status](https://travis-ci.org/rentabiliweb/docker-nodejs.svg?branch=master)](https://travis-ci.org/rentabiliweb/docker-nodejs)
+[![Build Status](https://travis-ci.org/rentabiliweb/docker-mongodb.svg?branch=master)](https://travis-ci.org/rentabiliweb/docker-mongodb)
 
 #### Table of Contents
 
@@ -11,21 +11,14 @@
 
 ## Overview
 
-Docker images and builders of Node.js.
+Docker images and for MongoDB.
 
 ## Description
 
-Node.js is a  platform built on Chrome's JavaScript runtime  for easily building
-fast, scalable network applications.  Node.js uses an event-driven, non-blocking
-I/O model  that makes it  lightweight and efficient, perfect  for data-intensive
-real-time applications that run across distributed devices.
+MongoDB (from humongous) is a cross-platform document-oriented database. Classified as a NoSQL database, MongoDB eschews the traditional table-based relational database structure in favor of JSON-like documents with dynamic schemas (MongoDB calls the format BSON), making the integration of data in certain types of applications easier and faster.
 
-https://nodejs.org/
+https://www.mongodb.org
 
-Npm makes  it easy  for JavaScript developers  to share and  reuse code,  and it
-makes it easy to update the code that you're sharing.
-
-https://www.npmjs.com/
 
 ## Usage
 
@@ -33,22 +26,14 @@ https://www.npmjs.com/
 
 ```bash
 $ docker run \
-  	 -it \
+  	 -itd \
   	 --rm \
-  	 -v /path/to/bind/from/host:/path/to/bind/in/container:rw \
-	 rentabiliweb/nodejs \
-	 bash -c 'cd /path/to/bind/in/container && node'
-```
-
-### Run npm
-
-```bash
-$ docker run \
-  	 -it \
-  	 --rm \
-  	 -v /path/to/bind/from/host:/path/to/bind/in/container:rw \
-	 rentabiliweb/nodejs \
-	 bash -c 'cd /path/to/bind/in/container && npm'
+  	 -v /opt/mongo/data/db:/data/db \
+	 -p 2222:27017 \
+	 --name mongodb_srv1
+	 rentabiliweb/mongodb \
+	 --smallfiles
+	 
 ```
 
 ## Development
