@@ -30,7 +30,7 @@ $ docker run \
   	 --rm \
   	 -v /opt/mongo/data/db:/data/db \
 	 -p 2222:27017 \
-	 --name mongodb_srv1
+	 --name mongodb_srv1 \
 	 rentabiliweb/mongodb \
 	 --smallfiles
 	 
