@@ -33,8 +33,16 @@ $ docker run \
 	 --name mongodb_srv1 \
 	 rentabiliweb/mongodb \
 	 --smallfiles
-	 
 ```
+
+You can also create a "data volume container" and mounting the data from it :
+
+```bash
+$ docker run -v /data/db --name mongo_data rentabiliweb/wheezy
+$ docker run -itd -p 2222:27017 --volumes-from-mongo_data --name mongodb_srv1 rentabiliweb/mongodb --smallfiles
+```
+
+
 
 ## Development
 
