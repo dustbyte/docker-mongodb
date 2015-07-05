@@ -17,19 +17,28 @@
 FROM rentabiliweb/wheezy:amd64
 MAINTAINER Rentabiliweb Group
 
-RUN echo 'Europe/Amsterdam' > /etc/timezone && \
-    dpkg-reconfigure tzdata
-
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-RUN echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" > /etc/apt/sources.list.d/mongodb-org-3.0.list
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-    apt-get upgrade -y
+    apt-get upgrade -y && \
+    apt-get install -y \
+      adduser
 
-RUN apt-get install -y mongodb-org
+# get mongodb (https://www.mongodb.org/)
+RUN curl -Ls https://docs.mongodb.org/10gen-gpg-key.asc | apt-key --keyring /etc/apt/trusted.gpg.d/mongodb-keyring.gpg add - && \
+    echo 'deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main' > /etc/apt/sources.list.d/mongodb.list && \
+    apt-get update && \
+    apt-get install -y \
+      mongodb-org
+
+# clean
+RUN find /var/cache/apt -type f -delete && \
+    find /var/lib/apt/lists -type f -delete
+
 RUN mkdir -p /data/db
 
 VOLUME ["/data/db"]
+
 ENTRYPOINT ["/usr/bin/mongod"]
 
 EXPOSE 27017
