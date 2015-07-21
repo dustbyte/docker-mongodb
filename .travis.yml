@@ -1,2 +1,4 @@
+sudo: false
+
 script:
-- bash -c 'echo OK'
+  - bash -c 'echo OK'

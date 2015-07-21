@@ -14,7 +14,7 @@
 
 # https://www.mongodb.org
 
-FROM rentabiliweb/wheezy:amd64
+FROM rentabiliweb/debian:wheezy
 MAINTAINER Rentabiliweb Group
 
 ENV DEBIAN_FRONTEND noninteractive
