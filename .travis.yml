@@ -1,4 +1,0 @@
-sudo: false
-
-script:
-  - bash -c 'echo OK'
