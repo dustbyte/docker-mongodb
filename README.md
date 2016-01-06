@@ -22,15 +22,15 @@ $ docker run \
   	 -v /opt/mongo/data/db:/data/db \
 	 -p 2222:27017 \
 	 --name mongodb_srv1 \
-	 rentabiliweb/mongodb \
+	 dalenys/mongodb \
 	 --smallfiles
 ```
 
 You can also create a "data volume container" and mounting the data from it :
 
 ```bash
-$ docker run -v /data/db --name mongo_data rentabiliweb/wheezy
-$ docker run -d -p 2222:27017 --volumes-from-mongo_data --name mongodb_srv1 rentabiliweb/mongodb --smallfiles
+$ docker run -v /data/db --name mongo_data dalenys/wheezy
+$ docker run -d -p 2222:27017 --volumes-from-mongo_data --name mongodb_srv1 dalenys/mongodb --smallfiles
 ```
 
 ## Development
@@ -48,5 +48,5 @@ Feel free to contribute on GitHub.
 ```
 
 [license-img]: https://img.shields.io/badge/license-ISC-blue.svg "License"
-[docker-img]: https://img.shields.io/docker/pulls/rentabiliweb/mongodb.svg "Docker"
-[docker-url]: https://registry.hub.docker.com/u/rentabiliweb/mongodb "Docker"
+[docker-img]: https://img.shields.io/docker/pulls/dalenys/mongodb.svg "Docker"
+[docker-url]: https://registry.hub.docker.com/u/dalenys/mongodb "Docker"

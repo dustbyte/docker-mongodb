@@ -1,4 +1,4 @@
-# Copyright (c) 2015, Rentabiliweb Group
+# Copyright (c) 2015, Dalenys
 #
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted, provided that the above
@@ -14,8 +14,8 @@
 
 # https://www.mongodb.org
 
-FROM rentabiliweb/debian:wheezy
-MAINTAINER Rentabiliweb Group
+FROM dalenys/debian:wheezy
+MAINTAINER Dalenys
 
 ENV DEBIAN_FRONTEND noninteractive
 
